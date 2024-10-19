@@ -18,7 +18,7 @@ public class AplicacaoDbContext : DbContext
         // var logSql = new LoggerFactory();
         // logSql.AddProvider(new MeuLogProvider());
         // optionsBuilder.UseLoggerFactory(logSql);
-        optionsBuilder.UseNpgsql(@"Host=192.168.56.101;" +
+        optionsBuilder.UseNpgsql(@"Host=192.168.56.103;" +
                                  "Username=biblioteca;" +
                                  "Password=123456;" +
                                  "Database=biblioteca;");
@@ -26,7 +26,9 @@ public class AplicacaoDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.HasDefaultSchema("public"); // Ou outro esquema se não for o 'public'
         base.OnModelCreating(modelBuilder);
+        
         modelBuilder.ApplyConfiguration(new LivroConfiguration());
         modelBuilder.ApplyConfiguration(new AutorConfiguration());
         modelBuilder.ApplyConfiguration(new EnderecoConfiguration());

@@ -17,7 +17,8 @@ namespace EF.Exemplo6.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasDefaultSchema("public")
+                .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -42,7 +43,7 @@ namespace EF.Exemplo6.Migrations
 
                     b.HasIndex("Nome");
 
-                    b.ToTable("Autor");
+                    b.ToTable("Autor", "public");
                 });
 
             modelBuilder.Entity("EF.Exemplo6.Endereco", b =>
@@ -81,7 +82,7 @@ namespace EF.Exemplo6.Migrations
                     b.HasIndex("AutorID")
                         .IsUnique();
 
-                    b.ToTable("Endereco");
+                    b.ToTable("Endereco", "public");
                 });
 
             modelBuilder.Entity("EF.Exemplo6.Genero", b =>
@@ -99,7 +100,7 @@ namespace EF.Exemplo6.Migrations
 
                     b.HasKey("GeneroID");
 
-                    b.ToTable("Genero");
+                    b.ToTable("Genero", "public");
                 });
 
             modelBuilder.Entity("EF.Exemplo6.Livro", b =>
@@ -109,6 +110,9 @@ namespace EF.Exemplo6.Migrations
                         .HasColumnType("character varying(13)");
 
                     b.Property<int>("AutorID")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Estoque")
                         .HasColumnType("integer");
 
                     b.Property<int?>("Paginas")
@@ -125,7 +129,7 @@ namespace EF.Exemplo6.Migrations
 
                     b.HasIndex("Titulo");
 
-                    b.ToTable("Livro");
+                    b.ToTable("Livro", "public");
                 });
 
             modelBuilder.Entity("EF.Exemplo6.LivroGenero", b =>
@@ -141,7 +145,7 @@ namespace EF.Exemplo6.Migrations
 
                     b.HasIndex("GeneroID");
 
-                    b.ToTable("LivroGenero");
+                    b.ToTable("LivroGenero", "public");
                 });
 
             modelBuilder.Entity("EF.Exemplo6.Endereco", b =>

@@ -22,5 +22,6 @@ public class EnderecoConfiguration : IEntityTypeConfiguration<Endereco>
         builder.Property(p => p.Cidade).HasMaxLength(40).IsRequired();
         builder.Property(p => p.UF).HasMaxLength(2).IsRequired();
         builder.Property(p => p.CEP).HasMaxLength(8).IsRequired();
+
     }
 }

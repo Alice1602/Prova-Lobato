@@ -18,11 +18,8 @@ public class AutorConfiguration : IEntityTypeConfiguration<Autor>
     {
         builder.HasIndex(p => p.Nome);
         builder.Property(p => p.Nome).HasMaxLength(80).IsRequired();
-        builder.HasOne<Endereco>(p => p.Endereco).
-            WithOne(p => p.Autor).
+        builder.HasOne<Endereco>(p => p.Endereco).WithOne(p => p.Autor).
             HasForeignKey<Endereco>(p => p.AutorID);
-        builder.HasMany(p => p.Livros).
-            WithOne(p => p.Autor).
-            OnDelete(DeleteBehavior.Cascade);
+        builder.HasMany(p => p.Livros).WithOne(p => p.Autor).OnDelete(DeleteBehavior.Cascade);
     }
 }
