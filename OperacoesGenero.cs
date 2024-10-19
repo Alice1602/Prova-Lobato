@@ -19,7 +19,7 @@ public class OperacoesGenero
     public static void Alterar()
     {
         using var db = new AplicacaoDbContext();
-        Console.WriteLine("Selecione o número do gênero a partir da lista");
+        Console.WriteLine("Selecione o número do gênero a partir da lista: ");
         OperacoesGenero.Listar();
         var generoid = Convert.ToInt32(Console.ReadLine());
         var genero = db.Genero.Find(generoid);
@@ -53,7 +53,7 @@ public class OperacoesGenero
     public static void Remover()
     {
         using var db = new AplicacaoDbContext();
-        Console.WriteLine("Selecione o número do gênero a partir da lista");
+        Console.WriteLine("Selecione o número do gênero a partir da lista: ");
         OperacoesGenero.Listar();
         var generoid = Convert.ToInt32(Console.ReadLine());
         var genero = db.Genero.Find(generoid);

@@ -6,7 +6,7 @@ public class OperacoesGeneroLivro
     {
         using var db = new AplicacaoDbContext();
         var livrogenero = new LivroGenero();
-        Console.WriteLine("Selecione o número do gênero a partir da lista");
+        Console.WriteLine("Selecione o número do gênero a partir da lista: ");
         OperacoesGenero.Listar();
         var generoid = Convert.ToInt32(Console.ReadLine());
         var genero = db.Genero.Find(generoid);
@@ -16,7 +16,7 @@ public class OperacoesGeneroLivro
             return;
         }
         livrogenero.Genero = genero;
-        Console.WriteLine("Selecione o número do livro a partir da lista");
+        Console.WriteLine("Selecione o número do livro a partir da lista: ");
         OperacoesLivro.Listar();
         var livroid = Console.ReadLine();
         var livro = db.Livro.Find(livroid);

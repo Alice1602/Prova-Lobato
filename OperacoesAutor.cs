@@ -66,7 +66,7 @@ public static class OperacoesAutor
     public static void Alterar()
     {
         using var db = new AplicacaoDbContext();
-        Console.WriteLine("Selecione o número do autor a partir da lista");
+        Console.WriteLine("Selecione o número do autor a partir da lista: ");
         OperacoesAutor.ListarComChave();
         var autorid = Convert.ToInt32(Console.ReadLine());
         //var autor = db.Autor.FirstOrDefault(p => p.AutorID == autorid);
@@ -110,7 +110,7 @@ public static class OperacoesAutor
     public static void Remover()
     {
         using var db = new AplicacaoDbContext();
-        Console.WriteLine("Selecione o número do autor a partir da lista");
+        Console.WriteLine("Selecione o número do autor a partir da lista: ");
         OperacoesAutor.ListarComChave();
         var autorid = Convert.ToInt32(Console.ReadLine());
         var autor = db.Autor.Find(autorid);

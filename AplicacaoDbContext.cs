@@ -26,7 +26,7 @@ public class AplicacaoDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("public"); // Ou outro esquema se não for o 'public'
+        modelBuilder.HasDefaultSchema("public");
         base.OnModelCreating(modelBuilder);
         
         modelBuilder.ApplyConfiguration(new LivroConfiguration());
